@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOREMED - Product Detail</title>
+    <link rel="stylesheet" href="product.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+    <div class="header1">
+        <img src="img/SOREMED icon.png" alt="soremed logo">
+        <p>Bienvenue, [Nom de l'utilisateur] !</p>
+        <img src="img/user.png" alt="profile" class="p">
+    </div>
+
+    <div class="header2">
+        <img src="img/burger-bar.png" alt="menu" class="menu-icon">
+        <div class="menu-items">
+            <span>Accueil</span>
+            <span>Nouveau</span>
+            <span>Promotion</span>
+        </div>
+        <div class="search-container">
+            <div class="search-bar">
+                <button type="button" class="icon-button" title="Search">
+                    <svg class="search-icon" viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </button>
+                <input type="text" id="medicine-search" class="search-input" placeholder="|  Rechercher un nom de médicament">
+                <button type="button" class="icon-button" title="Scan QR code">
+                    <svg class="qrcode-icon" viewBox="0 0 24 24">
+                        <path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2zM17 17h2v2h-2zM19 19h2v2h-2zM21 21h-2v-2h2v2zM21 17h-2v-2h2v2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <a href="cartpage.html"><img src="img/shopping-cart.png" alt="cart" class="p2"></a>
+    </div>
+
+    <div class="container breadcrumb">
+        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        </svg>
+        <span>&gt;</span>
+        <span id="product-breadcrumb">Product</span>
+    </div>
+
+    <div class="container product-section">
+        <div class="product-grid">
+            <div class="product-image">
+                <img src="img/image-removebg-preview.png" alt="Produit" id="product-main-image">
+            </div>
+            <div class="product-info">
+                <h1 class="product-title" id="product-title">Chargement...</h1>
+                <p class="product-description" id="product-description">Chargement...</p>
+                
+                <div class="product-controls">
+                    <div class="quantity-control">
+                        <button class="qty-btn" id="decreaseBtn">−</button>
+                        <span class="qty-value" id="quantityValue">1</span>
+                        <button class="qty-btn" id="increaseBtn">+</button>
+                    </div>
+                    <div class="price-info">
+                        <div class="price-label" id="product-price-pph">MAD 0.00 PPH</div>
+                        <div class="price-main" id="product-price-pv">MAD 0.00 <span class="price-pv">PV</span></div>
+                    </div>
+                </div>
+
+                <div class="stock-status">
+                    <div class="stock-dot"></div>
+                    <span>On stock</span>
+                </div>
+
+                <button class="add-to-cart-btn" id="detail-add-to-cart-btn">Ajouter au panier</button>
+                <p class="product-ref" id="product-ref">Réf : N/A</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container similar-section">
+        <h2 class="similar-title">Produits Similaires</h2>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html>

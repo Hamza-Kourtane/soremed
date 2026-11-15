@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOREMED</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Lato&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="header">
+        <img src="c:\Users\hp\Downloads\1630520003259 (1).png" alt="soremed logo">
+        <h1>SOREMED</h1>
+    </div>
+    <div class="all">
+        <!--this is the form--> 
+        <div class="left-box" id="leftBox">
+            <span>Bienvenue !</span>
+            <div class="left-box-fixed">
+                <p>  Créez un compte pour accéder à toutes</p><br>                <p>      les fonctionnalités du site</p>
+                <div class="button2">
+                    <button class="btn-login" id="toggleBtn">S'inscrire</button>
+                 </div>
+            </div>
+        </div>
+            
+        
+        <div class="right-box">
+            <h2>Identifiez-vous</h2>
+            <div class="form-group">
+              <input type="text" placeholder="Adress Email">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Mode de Pass">
+            </div>
+            <div class="checkbox">
+              <input type="checkbox" id="remember">
+              <label for="remember">Se souvenir de moi</label>
+            </div>
+            <div class="button1">
+               <button class="btn-login" >Se connecter</button>
+            </div>
+          </div>
+    </div>
+   
+    <script>
+const leftBox = document.getElementById("leftBox");
+const rightBox = document.querySelector(".right-box");
+
+let isRegisterView = false; // toggle flag
+
+function fadeOutElements(elements, duration = 500) {
+  return new Promise(resolve => {
+    let completed = 0;
+    elements.forEach(el => {
+      el.style.transition = `opacity ${duration}ms ease`;
+      el.style.opacity = '0';
+      el.addEventListener('transitionend', () => {
+        completed++;
+        if (completed === elements.length) resolve();
+      }, { once: true });
+    });
+  });
+}
+
+function fadeInElements(elements, duration = 500) {
+  elements.forEach(el => {
+    el.style.transition = `opacity ${duration}ms ease`;
+    el.style.opacity = '1';
+  });
+}
+
+function getElementsToFade(box) {
+  const span = box.querySelector('span');
+  const ps = Array.from(box.querySelectorAll('p'));
+  const button = box.querySelector('button');
+  return [span, ...ps, button].filter(Boolean);
+}
+
+function setLoginContent() {
+  leftBox.innerHTML = `
+    <span>Bienvenue !</span>
+    <div class="left-box-fixed">
+      <p>  Créez un compte pour accéder à toutes</p><br>                
+      <p>      les fonctionnalités du site</p>
+      <div class="button2">
+        <button class="btn-login" id="toggleBtn">S'inscrire</button>
+      </div>
+    </div>
+  `;
+
+  rightBox.innerHTML = `
+    <h2>Identifiez-vous</h2>
+    <div class="form-group">
+      <input type="text" placeholder="Adress Email">
+    </div>
+    <div class="form-group">
+      <input type="password" placeholder="Mode de Pass">
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" id="remember">
+      <label for="remember">Se souvenir de moi</label>
+    </div>
+    <div class="button1">
+      <button class="btn-login">Se connecter</button>
+    </div>
+  `;
+
+  // Reattach listener to new button
+  const newToggleBtn = document.getElementById("toggleBtn");
+  if (newToggleBtn) {
+    newToggleBtn.addEventListener("click", onToggleClick);
+  }
+}
+
+function setRegisterContent() {
+  leftBox.innerHTML = `
+    <span>Bon retour !</span>
+    <div class="left-box-fixed">
+      <p class="pa">Pour rester connecté avec nous, entrez vos informations personnelles et</p>
+      <p class="pa"> connectez-vous</p>
+      <div class="button3">
+        <button class="btn-login" id="toggleBtn">Se connecter</button>
+      </div>
+    </div>
+  `;
+
+  rightBox.innerHTML = `
+    <div class="form-content-fade-in">
+      <h2>Créer un compte</h2>
+      <div class="form-group double-input">
+        <input type="text" placeholder="Raison Sociale">
+      </div>
+      <div class="form-group double-input">
+        <input type="text" placeholder="Nom">
+        <input type="text" placeholder="Prenom">
+      </div>
+      <div class="form-group double-input">
+        <input type="text" placeholder="E-mail">
+      </div>
+      <div class="form-group double-input">
+        <input type="text" placeholder="Ville" class="small-input">
+        <input type="text" placeholder="N°Tel" class="small-input">
+      </div>
+      <div class="button1 double-input" style="margin-top: 24px;">
+        <button class="btn-login">S'inscrire</button>
+      </div>
+    </div>
+  `;
+
+  // Reattach listener to new button
+  const newToggleBtn = document.getElementById("toggleBtn");
+  if (newToggleBtn) {
+    newToggleBtn.addEventListener("click", onToggleClick);
+  }
+}
+
+async function onToggleClick() {
+  const toggleBtn = document.getElementById("toggleBtn");
+  // Disable button to prevent spamming
+  toggleBtn.disabled = true;
+  toggleBtn.style.cursor = "not-allowed";
+
+  // Remove animation class if already present and force reflow to reset animation
+  leftBox.classList.remove("animate-expand");
+  void leftBox.offsetWidth; // force reflow
+
+  // Add animation class to start expand animation
+  leftBox.classList.add("animate-expand");
+
+  // Fade out targeted elements inside left box
+  const elementsToFade = getElementsToFade(leftBox);
+  await fadeOutElements(elementsToFade);
+
+  // Swap content based on toggle state
+  if (isRegisterView) {
+    setLoginContent();
+  } else {
+    setRegisterContent();
+  }
+
+  // Clear inline styles to avoid stacking transitions, set opacity 0 before fade-in
+  const newElements = getElementsToFade(leftBox);
+  newElements.forEach(el => {
+    el.style.transition = '';
+    el.style.opacity = '0';
+  });
+
+  // Fade in new content elements
+  fadeInElements(newElements);
+
+  // Remove animation class after your animation duration (1.4s)
+  setTimeout(() => {
+    leftBox.classList.remove("animate-expand");
+
+    // Re-enable the button after animation finishes
+    const newToggleBtn = document.getElementById("toggleBtn");
+    if (newToggleBtn) {
+      newToggleBtn.disabled = false;
+      newToggleBtn.style.cursor = "pointer";
+    }
+  }, 1400);
+
+  // Toggle the view state
+  isRegisterView = !isRegisterView;
+}
+
+// Attach initial event listener on page load
+const toggleBtnInit = document.getElementById("toggleBtn");
+toggleBtnInit.addEventListener("click", onToggleClick);
+
+</script>
+
+
+
+</body>
+</html>

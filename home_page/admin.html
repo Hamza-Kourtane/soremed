@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOREMED - Administration</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- header1 : same green bar as the shop -->
+    <div class="header1">
+        <a href="home.html" title="Retour à la boutique"><img src="img/SOREMED icon.png" alt="soremed logo"></a>
+        <p>Espace administrateur — <span id="live-clock"></span></p>
+        <div class="header1-actions">
+            <button class="bell" id="bell" title="Nouvelles commandes">
+                <img src="img/notification.png" alt="notifications">
+                <span class="bell-badge" id="bell-badge">0</span>
+            </button>
+            <img src="img/user.png" alt="profile" class="p2">
+        </div>
+    </div>
+
+    <!-- header2 : same black bar, search filters orders -->
+    <div class="header2">
+        <img src="img/dashboard.png" alt="dashboard" class="menu-icon">
+        <div class="menu-items">
+            <span data-scroll="stats" class="active">Tableau de bord</span>
+            <span data-scroll="orders">Commandes</span>
+            <span data-scroll="map-section">Carte</span>
+            <a href="home.html"><span>Boutique</span></a>
+        </div>
+        <div class="search-container">
+            <div class="search-bar">
+                <button type="button" class="icon-button" title="Rechercher">
+                    <svg class="search-icon" viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </button>
+                <input type="text" id="order-search" class="search-input" placeholder="|  Rechercher une commande, un client, une ville">
+                <button type="button" class="icon-button" id="clear-search" title="Effacer">
+                    <svg class="qrcode-icon" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+        </div>
+        <a href="cartpage.html"><img src="img/shopping-cart.png" alt="cart" class="p2"></a>
+    </div>
+
+    <main class="admin-main">
+        <div class="title-row reveal">
+            <div class="product-tiltel"><h1>Tableau de bord</h1></div>
+            <div class="toolbar">
+                <div class="chip-group" id="period-chips">
+                    <button class="chip" data-days="1">Aujourd'hui</button>
+                    <button class="chip" data-days="7">7 jours</button>
+                    <button class="chip active" data-days="30">30 jours</button>
+                    <button class="chip" data-days="0">Tout</button>
+                </div>
+                <button class="btn btn-ghost" id="refresh-btn">
+                    <svg viewBox="0 0 24 24"><path d="M17.65 6.35A7.95 7.95 0 0 0 12 4a8 8 0 1 0 7.73 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                    Actualiser
+                </button>
+                <button class="btn btn-ghost" id="export-btn">
+                    <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Exporter CSV
+                </button>
+                <button class="btn btn-green" id="simulate-btn">
+                    <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    Commande test
+                </button>
+            </div>
+        </div>
+
+        <!-- KPI cards -->
+        <section class="stats" id="stats">
+            <div class="stat-card reveal" data-filter="all">
+                <div class="stat-icon"><img src="img/purchase-order.png" alt=""></div>
+                <div>
+                    <div class="stat-label">Commandes</div>
+                    <div class="stat-value" id="stat-orders">0</div>
+                    <div class="stat-sub" id="stat-orders-sub">&nbsp;</div>
+                </div>
+            </div>
+            <div class="stat-card reveal" data-filter="all">
+                <div class="stat-icon"><img src="img/sales-tag.png" alt=""></div>
+                <div>
+                    <div class="stat-label">Chiffre d'affaires PPH</div>
+                    <div class="stat-value" id="stat-revenue">MAD 0</div>
+                    <div class="stat-sub" id="stat-revenue-sub">&nbsp;</div>
+                </div>
+            </div>
+            <div class="stat-card reveal" data-filter="pending">
+                <div class="stat-icon yellow"><img src="img/order-history.png" alt=""></div>
+                <div>
+                    <div class="stat-label">En attente</div>
+                    <div class="stat-value" id="stat-pending">0</div>
+                    <div class="stat-sub">Cliquez pour filtrer</div>
+                </div>
+            </div>
+            <div class="stat-card reveal" data-filter="cities">
+                <div class="stat-icon"><img src="img/tracking.png" alt=""></div>
+                <div>
+                    <div class="stat-label">Villes desservies</div>
+                    <div class="stat-value" id="stat-cities">0</div>
+                    <div class="stat-sub" id="stat-cities-sub">&nbsp;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map + breakdowns -->
+        <section class="grid-2" id="map-section">
+            <div class="card map-card reveal">
+                <div class="card-head">
+                    <h2>Origine des commandes</h2>
+                    <div class="chip-group small">
+                        <button class="chip active" id="fit-map">Tout le Maroc</button>
+                        <button class="chip" id="toggle-heat">Cercles de volume</button>
+                    </div>
+                </div>
+                <div id="map"></div>
+                <div class="legend">
+                    <span><i class="dot pending"></i>En attente</span>
+                    <span><i class="dot preparing"></i>En préparation</span>
+                    <span><i class="dot shipped"></i>Expédiée</span>
+                    <span><i class="dot delivered"></i>Livrée</span>
+                    <span><i class="dot cancelled"></i>Annulée</span>
+                </div>
+            </div>
+
+            <div class="side-col">
+                <div class="card reveal">
+                    <div class="card-head"><h2>Par ville</h2></div>
+                    <div id="city-bars" class="bars"></div>
+                </div>
+                <div class="card reveal">
+                    <div class="card-head"><h2>Canal d'origine</h2></div>
+                    <div class="donut-wrap">
+                        <div class="donut" id="source-donut"><span id="donut-center">0</span></div>
+                        <ul class="donut-legend" id="source-legend"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Orders -->
+        <section class="card orders-card reveal" id="orders">
+            <div class="card-head">
+                <h2>Commandes</h2>
+                <select id="city-filter" class="select"><option value="">Toutes les villes</option></select>
+            </div>
+            <div class="tabs" id="status-tabs">
+                <button class="tab active" data-status="all">Toutes <b></b></button>
+                <button class="tab" data-status="pending">En attente <b></b></button>
+                <button class="tab" data-status="preparing">En préparation <b></b></button>
+                <button class="tab" data-status="shipped">Expédiées <b></b></button>
+                <button class="tab" data-status="delivered">Livrées <b></b></button>
+                <button class="tab" data-status="cancelled">Annulées <b></b></button>
+            </div>
+            <div class="table-wrap">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th data-sort="id">N° <i></i></th>
+                            <th data-sort="client">Client <i></i></th>
+                            <th data-sort="city">Localisation <i></i></th>
+                            <th data-sort="source">Origine <i></i></th>
+                            <th data-sort="date">Date <i></i></th>
+                            <th data-sort="total">Total PPH <i></i></th>
+                            <th data-sort="status">Statut <i></i></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-body"></tbody>
+                </table>
+                <div class="empty" id="empty-state">
+                    <img src="img/shopping-cart-empty-side-view.png" alt="">
+                    <p>Aucune commande ne correspond à vos filtres.</p>
+                    <button class="btn btn-ghost" id="reset-filters">Réinitialiser les filtres</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Order detail drawer -->
+    <div class="overlay" id="overlay"></div>
+    <aside class="drawer" id="drawer" aria-hidden="true">
+        <div class="drawer-head">
+            <div>
+                <div class="drawer-id" id="d-id"></div>
+                <div class="drawer-date" id="d-date"></div>
+            </div>
+            <button class="close-btn" id="drawer-close" title="Fermer"><img src="img/close.png" alt="fermer"></button>
+        </div>
+        <div class="drawer-body">
+            <div class="timeline" id="d-timeline"></div>
+
+            <div class="info-block">
+                <h3>Client</h3>
+                <p class="strong" id="d-client"></p>
+                <p id="d-contact"></p>
+                <p id="d-phone"></p>
+            </div>
+            <div class="info-block">
+                <h3>Livraison & origine</h3>
+                <p class="strong" id="d-city"></p>
+                <p id="d-address"></p>
+                <p id="d-coords" class="muted"></p>
+                <p><span class="source-pill" id="d-source"></span></p>
+                <div id="mini-map"></div>
+            </div>
+            <div class="info-block">
+                <h3>Articles</h3>
+                <div id="d-items"></div>
+                <div class="d-total"><span>Total PPH</span><b id="d-total-pph"></b></div>
+                <div class="d-total muted"><span>Total PV</span><b id="d-total-pv"></b></div>
+            </div>
+        </div>
+        <div class="drawer-actions" id="d-actions"></div>
+    </aside>
+
+    <div class="toast-zone" id="toasts"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(to left, #CFFCF0, #FFFFFF);
+}
+
+/* Title/Header */
+.header img {
+    width: 81px;
+    height: 53px;
+}
+
+.header h1 {
+    font-size: 40px;
+    color: #3EB596;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+}
+
+.header {
+    padding: 16px;
+    width: 242px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Right Box */
+.right-box {
+    width: 70%;
+    background: #ffffff;
+    height: 400px;
+    margin-left: 202px;
+    padding: 24px 0 0 566px;
+    border-radius: 25px;
+}
+
+.right-box h2 {
+    font: 400 48px 'Montserrat', sans-serif;
+    position: relative;
+    right: 90px;
+    width: 400px;
+}
+
+.form-group {
+    margin: 28px 0 0 16px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.form-group input {
+    position: relative ;
+    right: 90px;
+    width: 323px;
+    height: 48px;
+    padding: 16px;
+    background: #88888815;
+    border: 1px solid rgba(0, 0, 0, 0.151);
+}
+
+
+.form-group input::placeholder {
+    font-size: 12px;
+    padding-right: 16px;
+}
+
+.checkbox {
+    position: relative ;
+    right: 90px;
+    margin: 12px 0 40px 16px;
+}
+
+.checkbox input {
+    
+    width: 13px;
+    height: 13px;
+}
+
+.checkbox label {
+   
+    font-family: 'Inter', sans-serif;
+    color: #888;
+}
+
+.button1 button {
+    padding: 12px 24px;
+    border: 2px solid white;
+    color: white;
+    width: 125px;
+    background: #3EB596;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 25px;
+    margin-top: -10px;
+}
+
+/* Left Box */
+.left-box {
+    position: fixed;
+  
+    left: 202px;        /* replace transform */
+    width: 30%;
+    height: 400px;
+    z-index: 9999;
+    background: #3EB596;
+    padding: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 25px 121px 80px 20px;
+    transition: width 2s ease-in-out; /* smooth width transition */
+}
+
+
+.left-box span {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    font-size: 40px;
+    color: #FFFFFF;
+    font-weight: 900;
+    margin-top: 100px;
+    margin-left: 68px;
+}
+
+.left-box div {
+    padding-top: 16px;
+    text-align: center;
+}
+.left-box-fixed{
+    position: fixed;
+}
+.left-box p {
+    position: absolute;
+    width: 500px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 16px;
+    padding-top: 4px;
+    left: 20px;
+    margin-left: -85px;
+    
+}
+
+.button2 button {
+   position: absolute;
+    margin-left: 120px;
+    padding: 12px ;
+    border: 2px solid white;
+    color: white;
+    width: 125px;
+    background: #3EB596;
+    border-radius: 25px;
+    cursor: pointer;
+    padding-left: 38px;
+    font-size: 12px;
+    margin-top: 47px;
+}
+@keyframes stretchBox {
+    0% {
+        width: 30%;
+    }
+    50% {
+        width: 70%;
+        border-radius: 25px;
+        
+    }
+    100% {
+        width: 30%;
+    }
+}
+
+.animate-expand {
+    animation: stretchBox 1.4s ease-in-out forwards;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+/* Vertical spacing only for paired input groups */
+.form-group.double-input {
+    margin-top: 10px;   /* space above the pair */
+    margin-bottom: 10px; /* space below the pair */
+}
+.form-group.double-input input[placeholder="Ville"],
+.form-group.double-input input[placeholder="N°Tel"],
+.form-group.double-input input[placeholder="Prenom"],
+.form-group.double-input input[placeholder="Nom"] {
+  width: 158px !important;
+}
+.form-group.double-input input[placeholder="E-mail"]{
+    width: 323px !important;
+}
+.btn-login {
+    
+       display: flex;
+    margin-left: 120px;
+    padding: 12px ;
+    border: 2px solid white;
+    color: white;
+    width: 125px;
+    background: #3EB596;
+    border-radius: 25px;
+    cursor: pointer;
+    padding-left: 25px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+.left-box .pa {
+    position: relative ;
+    width: 300px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 16px;
+    padding-top: 4px;
+    margin-left: 20px;
+    
+}
+
+
+
+
+
+
+/* Make only the double inputs align next to each other */
+.double-input {
+    display: flex !important;
+    justify-content: space-between;
+    gap: 8px; /* control spacing */
+    position: relative;
+    right: 90px; /* keep your original offset */
+}
+
+/* Override old styles for these inputs only */
+.double-input {
+  position: relative;
+  top: 5px; /* move the entire pair up by 25px */
+  right: 30px;
+}
+
+
+.form-content-fade-in h2 {
+    font: 400 48px 'Montserrat', sans-serif;
+    white-space: nowrap;  /* prevent line break */
+    margin-left: -40px;    /* better than relative left */
+    width: auto;  
+           
+}
+

@@ -1,0 +1,13 @@
+Product photos from Wikimedia Commons (https://commons.wikimedia.org)
+Keep this attribution if the site is published (CC BY / CC BY-SA require credit).
+
+paracetamol.jpg   "Medication Paracetamol.JPG" by Mk2010 - CC BY-SA 3.0
+                  https://commons.wikimedia.org/wiki/File:Medication_Paracetamol.JPG
+amoxicilline.jpg  "Amoxicillin 500mg capsules on a plate (Sandoz).jpg" by Henrysz - CC BY 4.0
+                  https://commons.wikimedia.org/wiki/File:Amoxicillin_500mg_capsules_on_a_plate_(Sandoz).jpg
+spasfon.jpg       "Spasfon-LYOC phloroglucinol 80mg.jpg" by Torfanomazine - CC0 (public domain)
+                  https://commons.wikimedia.org/wiki/File:Spasfon-LYOC_phloroglucinol_80mg.jpg
+smecta.jpg        "Diosmectite Mylan 3g.jpg" by Torfanomazine - CC0 (public domain)
+                  https://commons.wikimedia.org/wiki/File:Diosmectite_Mylan_3g.jpg
+vitamine-c.jpg    "Effervescent tablet of vitamin C in glass.jpg" by Shixart1985 - CC BY 2.0
+                  https://commons.wikimedia.org/wiki/File:Effervescent_tablet_of_vitamin_C_in_glass.jpg

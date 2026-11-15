@@ -1,0 +1,178 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SOREMED - Accueil</title>
+        <link rel="stylesheet" href="homr.css">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shop.css">
+    </head>
+    <body>
+        <div class="header1">
+            <img src="img/SOREMED icon.png" alt="soremed logo">
+            <p>Bienvenue, [Nom de l'utilisateur] !</p>
+            <img src="img/user.png" alt="profile" class="p2">
+        </div>
+
+        <div class="header2">
+            <img src="img/burger-bar.png" alt="menu" class="menu-icon">
+            <div class="menu-items">
+                <span>Accueil</span>
+                <span>Nouveau</span>
+                <span>Promotion</span>
+            </div>
+            <div class="search-container">
+                <div class="search-bar">
+                    <button type="button" class="icon-button" title="Search">
+                        <svg class="search-icon" viewBox="0 0 24 24">
+                            <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                    </button>
+                    <input type="text" id="medicine-search" class="search-input" placeholder="|  Rechercher un nom de médicament">
+                    <button type="button" class="icon-button" title="Scan QR code">
+                        <svg class="qrcode-icon" viewBox="0 0 24 24">
+                            <path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2zM17 17h2v2h-2zM19 19h2v2h-2zM21 21h-2v-2h2v2zM21 17h-2v-2h2v2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <a href="cartpage.html"><img src="img/shopping-cart.png" alt="cart" class="p2"></a>
+        </div>
+
+        <div class="header3">
+            <div class="slider">
+                <img src="img/Slide-fr8.jpg" alt="slide 1">
+                <img src="img/Slide-fr7.jpg" alt="slide 2">
+                <img src="img/Slide-soremed.png" alt="slide 3">
+            </div>
+        </div>
+
+        <div class="product-tiltel">
+            <h1>Accueil</h1>
+        </div>
+
+        <div class="product-list">
+            <div class="product-card" data-id="P001" data-name="DOLIPRANE TABS 1000MG BT 8" data-price-pph="15.00" data-price-pv="20.00" data-ref="3400937435888" data-description="Médicament à base de paracétamol indiqué pour la douleur et la fièvre.">
+                <div class="product-image-container">
+                    <button class="discount-button" title="-25%"><img src="img/discount-tag.png" alt="Promotion" width="35" /></button>
+                    <button class="favorite-button"><img src="img/star.png" alt="Favorite" width="30" /></button>
+                    <a href="product.html?id=P001"><img src="img/products/paracetamol.jpg" alt="DOLIPRANE TABS 1000MG BT 8" class="product-image" /></a>
+                </div>
+                <div class="product-details">
+                    <div class="product-name">DOLIPRANE TABS 1000MG</div>
+                    <div class="product-price">MAD 20.00 PV</div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="P002" data-name="ROC KEOPS DÉODORANT Bille 2x30ml" data-price-pph="75.00" data-price-pv="99.99" data-ref="5060072731689" data-description="Désodorisant longue durée pour une protection efficace.">
+                <div class="product-image-container">
+                    <button class="favorite-button"><img src="img/star.png" alt="Favorite" width="30" /></button>
+                    <a href="product.html?id=P002"><img src="img/roc-keops-deodorant-a-bille-lot-de-2x30ml-removebg-preview.png" alt="ROC KEOPS DÉODORANT Bille 2x30ml" class="product-image" /></a>
+                </div>
+                <div class="product-details">
+                    <div class="product-name">ROC KEOPS DÉODORANT</div>
+                    <div class="product-price">MAD 99.99 PV</div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="P003" data-name="NATURACTIVE MAUX DE TÊTE FLASH BIO" data-price-pph="50.00" data-price-pv="65.00" data-ref="SRM-1003" data-description="Complément à base de plantes pour soulager rapidement les maux de tête.">
+                <div class="product-image-container">
+                    <button class="discount-button" title="-20%"><img src="img/discount-tag.png" alt="Promotion" width="35" /></button>
+                    <button class="favorite-button"><img src="img/star.png" alt="Favorite" width="30" /></button>
+                    <a href="product.html?id=P003"><img src="img/7f6e526a9813f44e15aec2598d6e-removebg-preview.png" alt="NATURACTIVE MAUX DE TÊTE FLASH BIO" class="product-image" /></a>
+                </div>
+                <div class="product-details">
+                    <div class="product-name">NATURACTIVE MAUX DE TÊTE</div>
+                    <div class="product-price">MAD 65.00 PV</div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="P004" data-name="LA ROCHE-POSAY ANTHELIOS UVMUNE 400 SPF50+ 50ml" data-price-pph="145.00" data-price-pv="189.00" data-ref="SRM-1004" data-description="Crème solaire hydratante très haute protection, peaux sensibles.">
+                <div class="product-image-container">
+                    <button class="favorite-button"><img src="img/star.png" alt="Favorite" width="30" /></button>
+                    <a href="product.html?id=P004"><img src="img/4aaa44902e1b1edaa8e82c2807e4-removebg-preview4.png" alt="LA ROCHE-POSAY ANTHELIOS UVMUNE 400 SPF50+ 50ml" class="product-image" /></a>
+                </div>
+                <div class="product-details">
+                    <div class="product-name">ANTHELIOS SPF50+</div>
+                    <div class="product-price">MAD 189.00 PV</div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="P005" data-name="NATURE'S PLUS VITAMINE B1 300MG 90 cp" data-price-pph="100.00" data-price-pv="130.00" data-ref="SRM-1005" data-description="Vitamine B1 à libération prolongée, soutien du système nerveux.">
+                <div class="product-image-container">
+                    <button class="favorite-button"><img src="img/star.png" alt="Favorite" width="30" /></button>
+                    <a href="product.html?id=P005"><img src="img/image-removebg-preview3.png" alt="NATURE'S PLUS VITAMINE B1 300MG 90 cp" class="product-image" /></a>
+                </div>
+                <div class="product-details">
+                    <div class="product-name">VITAMINE B1 300MG</div>
+                    <div class="product-price">MAD 130.00 PV</div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-list">
+            <div class="product-card" data-id="P006" data-name="SVR SUN SECURE BLUR SPF50+ 50ml" data-price-pph="120.00" data-price-pv="159.00" data-ref="SRM-1006" data-description="Crème mousse solaire effet flouteur optique, très haute protection.">
+                <div class="product-image-container">
+                    <button class="discount-button" title="-20%"><img src="img/discount-tag.png" alt="Promotion" width="35" /></button>
+                    <button class="favorite-button"><img src="img/star.png" alt="Favorite" width="30" /></button>
+                    <a href="product.html?id=P006"><img src="img/image-removebg-preview1.png" alt="SVR SUN SECURE BLUR SPF50+ 50ml" class="product-image" /></a>
+                </div>
+                <div class="product-details">
+                    <div class="product-name">SVR SUN SECURE SPF50+</div>
+                    <div class="product-price">MAD 159.00 PV</div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="P007" data-name="AMOXICILLINE 500MG 12 gélules" data-price-pph="38.00" data-price-pv="49.90" data-ref="SRM-1007" data-description="Antibiotique de la famille des pénicillines. Sur ordonnance.">
+                <div class="product-image-container">
+                    <button class="favorite-button"><img src="img/star.png" alt="Favorite" width="30" /></button>
+                    <a href="product.html?id=P007"><img src="img/products/amoxicilline.jpg" alt="AMOXICILLINE 500MG 12 gélules" class="product-image" /></a>
+                </div>
+                <div class="product-details">
+                    <div class="product-name">AMOXICILLINE 500MG</div>
+                    <div class="product-price">MAD 49.90 PV</div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="P008" data-name="SPASFON LYOC 80MG BT 10" data-price-pph="24.00" data-price-pv="32.00" data-ref="SRM-1008" data-description="Antispasmodique (phloroglucinol) pour les douleurs abdominales.">
+                <div class="product-image-container">
+                    <button class="favorite-button"><img src="img/star.png" alt="Favorite" width="30" /></button>
+                    <a href="product.html?id=P008"><img src="img/products/spasfon.jpg" alt="SPASFON LYOC 80MG BT 10" class="product-image" /></a>
+                </div>
+                <div class="product-details">
+                    <div class="product-name">SPASFON LYOC 80MG</div>
+                    <div class="product-price">MAD 32.00 PV</div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="P009" data-name="DIOSMECTITE MYLAN 3G SACHETS BT 30" data-price-pph="42.00" data-price-pv="55.00" data-ref="SRM-1009" data-description="Traitement symptomatique de la diarrhée (générique de Smecta).">
+                <div class="product-image-container">
+                    <button class="discount-button" title="-15%"><img src="img/discount-tag.png" alt="Promotion" width="35" /></button>
+                    <button class="favorite-button"><img src="img/star.png" alt="Favorite" width="30" /></button>
+                    <a href="product.html?id=P009"><img src="img/products/smecta.jpg" alt="DIOSMECTITE MYLAN 3G SACHETS BT 30" class="product-image" /></a>
+                </div>
+                <div class="product-details">
+                    <div class="product-name">DIOSMECTITE MYLAN 3G</div>
+                    <div class="product-price">MAD 55.00 PV</div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="P010" data-name="VITAMINE C 1000MG EFFERVESCENT" data-price-pph="18.50" data-price-pv="25.00" data-ref="SRM-1010" data-description="Complément alimentaire contre la fatigue, comprimés effervescents.">
+                <div class="product-image-container">
+                    <button class="favorite-button"><img src="img/star.png" alt="Favorite" width="30" /></button>
+                    <a href="product.html?id=P010"><img src="img/products/vitamine-c.jpg" alt="VITAMINE C 1000MG EFFERVESCENT" class="product-image" /></a>
+                </div>
+                <div class="product-details">
+                    <div class="product-name">VITAMINE C 1000MG</div>
+                    <div class="product-price">MAD 25.00 PV</div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+        <script src="shop.js"></script>
+    </body>
+    </html>
+    
